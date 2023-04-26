@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
-import 'listpage.dart';
-import 'package:test_app/userpage/detailpage.dart';
+import '../model/listpage.dart';
+import 'package:test_app/screen/detailpage.dart';
 
 class UserList extends StatefulWidget {
   const UserList({super.key});

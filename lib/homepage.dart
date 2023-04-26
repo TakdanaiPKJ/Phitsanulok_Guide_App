@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:test_app/userpage/userhome.dart';
-import 'package:test_app/userpage/userlist.dart';
-import 'package:test_app/userpage/usersetting.dart';
+import 'package:test_app/screen/userhome.dart';
+import 'package:test_app/screen/userlist.dart';
+import 'package:test_app/screen/usersetting.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

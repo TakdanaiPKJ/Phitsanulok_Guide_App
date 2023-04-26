@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/homepage.dart';
-import 'package:test_app/userpage/userhome.dart';
-import 'package:test_app/userpage/userlist.dart';
-import 'package:test_app/userpage/usersetting.dart';
+import 'package:test_app/screen/userhome.dart';
+import 'package:test_app/screen/userlist.dart';
+import 'package:test_app/screen/usersetting.dart';
 
 void main() {
   runApp(const MyApp());
