@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:maps_launcher/maps_launcher.dart';
-import 'package:test_app/homepage.dart';
+import 'listpage.dart';
 
 class DetailPage extends StatelessWidget {
   final ListPlace place;
