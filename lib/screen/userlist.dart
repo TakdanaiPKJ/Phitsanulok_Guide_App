@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:test_app/homepage.dart';
+import 'listpage.dart';
 import 'package:test_app/userpage/detailpage.dart';
 
 class UserList extends StatefulWidget {
