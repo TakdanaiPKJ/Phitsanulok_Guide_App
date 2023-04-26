@@ -15,7 +15,10 @@ class _UserListState extends State<UserList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('List'),
+        centerTitle: false,
+        title: const Text('Place List'),
+        backgroundColor: const Color(0XFFA13464),
+        shadowColor: Colors.transparent,
       ),
       body: ListView.builder(
         itemCount: 1,
@@ -23,9 +26,9 @@ class _UserListState extends State<UserList> {
           final place = listplace[index];
           return Card(
             child: ListTile(
-              leading: const CircleAvatar(
+              leading: CircleAvatar(
                 radius: 28,
-                backgroundImage: NetworkImage(''),
+                backgroundImage: NetworkImage(place.pic),
               ),
               title: Text(place.name),
               subtitle: Text(place.type),

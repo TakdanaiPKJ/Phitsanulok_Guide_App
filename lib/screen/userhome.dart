@@ -13,12 +13,14 @@ class UserHome extends StatefulWidget {
 
 class _UserHomeState extends State<UserHome> {
   final place = listplace;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('HOME'),
+        centerTitle: false,
+        title: const Text('Home'),
+        backgroundColor: const Color(0XFFA13464),
+        shadowColor: Colors.transparent,
       ),
       body: FlutterMap(
         options: MapOptions(center: LatLng(16.8239, 100.2622), zoom: 15),
@@ -44,10 +46,10 @@ class _UserHomeState extends State<UserHome> {
                           ));
                           //Navigator.pushNamed(context, 'watyai');
                         },
-                        icon: const Icon(Icons.circle),
+                        icon: const Icon(Icons.pin_drop),
                         color: Colors.red,
-                        iconSize: 10.0,
-                      ))
+                        iconSize: 30.0,
+                      )),
             ],
           )
         ],

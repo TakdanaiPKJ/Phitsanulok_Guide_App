@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:test_app/screen/gamepage.dart';
+import 'package:test_app/screen/gamescreen/quizwelcome.dart';
 import 'package:test_app/screen/userhome.dart';
 import 'package:test_app/screen/userlist.dart';
 import 'package:test_app/screen/usersetting.dart';
@@ -16,6 +18,7 @@ int _currentIndex = 0;
 List<Widget> navpage = const [
   UserHome(),
   UserList(),
+  UserGame(),
   UserSetting(),
 ];
 
@@ -23,8 +26,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-          child: navpage[_currentIndex],
+        body: const Center(
+          child: //navpage[_currentIndex],
+              QuizWelcome(),
         ),
         bottomNavigationBar: Container(
           decoration: BoxDecoration(color: Colors.white, boxShadow: [
@@ -36,7 +40,7 @@ class _HomePageState extends State<HomePage> {
           child: SafeArea(
               child: Padding(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+                      const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8),
                   child: GNav(
                     rippleColor: Colors.grey[300]!,
                     hoverColor: Colors.grey[100]!,
@@ -58,7 +62,11 @@ class _HomePageState extends State<HomePage> {
                         text: 'List',
                       ),
                       GButton(
-                        icon: LineIcons.assistiveListeningSystems,
+                        icon: LineIcons.chess,
+                        text: 'Quiz Game',
+                      ),
+                      GButton(
+                        icon: LineIcons.wrench,
                         text: 'Settings',
                       ),
                     ],

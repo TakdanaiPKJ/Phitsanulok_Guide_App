@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:maps_launcher/maps_launcher.dart';
+import 'package:test_app/screen/userhome.dart';
 import '../model/listpage.dart';
 
 class DetailPage extends StatelessWidget {
@@ -70,6 +71,14 @@ class DetailPage extends StatelessWidget {
               child: Text('Go to ${place.name}'),
             ),
           ),
+          SliverToBoxAdapter(
+              child: Builder(
+                  builder: (context) => ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const UserHome()));
+                      },
+                      child: Text("${place.name}'s Quiz")))),
         ],
       ),
     );
