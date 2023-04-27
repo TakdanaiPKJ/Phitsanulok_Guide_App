@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:test_app/screen/gamepage.dart';
-import 'package:test_app/screen/gamescreen/quizwelcome.dart';
 import 'package:test_app/screen/userhome.dart';
 import 'package:test_app/screen/userlist.dart';
 import 'package:test_app/screen/usersetting.dart';
@@ -26,9 +25,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: const Center(
-          child: //navpage[_currentIndex],
-              QuizWelcome(),
+        body: Center(
+          child: navpage[_currentIndex],
+          //MatchingGame(),
         ),
         bottomNavigationBar: Container(
           decoration: BoxDecoration(color: Colors.white, boxShadow: [
