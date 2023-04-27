@@ -5,9 +5,10 @@ class UserSetting extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('sdifj'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Settings'),
+        backgroundColor: const Color.fromRGBO(8, 61, 119, 1),
       ),
     );
   }

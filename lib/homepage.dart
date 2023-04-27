@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:test_app/screen/gamepage.dart';
 import 'package:test_app/screen/userhome.dart';
 import 'package:test_app/screen/userlist.dart';
 import 'package:test_app/screen/usersetting.dart';
@@ -17,7 +16,6 @@ int _currentIndex = 0;
 List<Widget> navpage = const [
   UserHome(),
   UserList(),
-  UserGame(),
   UserSetting(),
 ];
 
@@ -59,10 +57,6 @@ class _HomePageState extends State<HomePage> {
                       GButton(
                         icon: LineIcons.list,
                         text: 'List',
-                      ),
-                      GButton(
-                        icon: LineIcons.chess,
-                        text: 'Quiz Game',
                       ),
                       GButton(
                         icon: LineIcons.wrench,

@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icon.dart';
 import 'package:maps_launcher/maps_launcher.dart';
-import 'package:test_app/screen/userhome.dart';
+import '../gamescreen/matchinggame.dart';
 import '../model/listmodel.dart';
 
 class DetailPage extends StatelessWidget {
   final ListPlace place;
-
-  const DetailPage({Key? key, required this.place}) : super(key: key);
+  final int placeindex;
+  const DetailPage({Key? key, required this.place, required this.placeindex})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    int id;
+    id = placeindex;
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(235, 235, 211, 1),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            backgroundColor: Colors.amberAccent,
+            backgroundColor: const Color.fromRGBO(4, 41, 77, 1),
             floating: false,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
@@ -23,7 +28,10 @@ class DetailPage extends StatelessWidget {
                 width: double.infinity,
                 fit: BoxFit.cover,
               ),
-              title: Text(place.name),
+              title: Text(
+                place.name,
+                style: const TextStyle(fontStyle: FontStyle.italic),
+              ),
               centerTitle: true,
             ),
             expandedHeight: 250,
@@ -34,17 +42,17 @@ class DetailPage extends StatelessWidget {
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: Container(
-                    height: 400,
-                    color: const Color.fromARGB(255, 16, 136, 200),
+                    //height: 400,
+                    color: const Color.fromRGBO(235, 235, 211, 1),
                     child: Container(
-                      padding: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 5),
                       //margin: const EdgeInsets.all(5),
                       child: Text(
                         place.detail,
                         style: const TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontStyle: FontStyle.italic,
-                            color: Color.fromARGB(255, 47, 47, 47)),
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromRGBO(247, 135, 100, 1)),
                       ),
                     ),
                   )),
@@ -54,9 +62,10 @@ class DetailPage extends StatelessWidget {
             child: Padding(
                 padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(20),
                   child: Container(
                     height: 400,
+                    width: 400,
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             image: NetworkImage(place.otherpic),
@@ -65,20 +74,80 @@ class DetailPage extends StatelessWidget {
                 )),
           ),
           SliverToBoxAdapter(
-            child: ElevatedButton(
-              onPressed: () => MapsLauncher.launchCoordinates(
-                  place.latt, place.lngg, '${place.name} is here'),
-              child: Text('Go to ${place.name}'),
+            child: Container(
+              width: 100,
+              height: 60,
+              margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+              padding: const EdgeInsets.fromLTRB(20, 10, 20, 5),
+              child: ElevatedButton.icon(
+                onPressed: () => MapsLauncher.launchCoordinates(
+                    place.latt, place.lngg, '${place.name} is here'),
+                label: Text(
+                  'Go to ${place.name}',
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: Color.fromRGBO(235, 235, 211, 1),
+                  ),
+                ),
+                icon: LineIcon.mapMarker(
+                  color: const Color.fromRGBO(235, 235, 211, 1),
+                ),
+                style: ElevatedButton.styleFrom(
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(50),
+                    ),
+                  ),
+                  //minimumSize: const Size(200, 35),
+                  primary: const Color.fromRGBO(218, 65, 103, 1),
+                  elevation: 0,
+                  shadowColor: Colors.transparent,
+                ),
+              ),
             ),
           ),
           SliverToBoxAdapter(
+            child: Container(
+              width: 100,
+              height: 60,
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
+              margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
               child: Builder(
-                  builder: (context) => ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const UserHome()));
-                      },
-                      child: Text("${place.name}'s Quiz")))),
+                builder: (context) => ElevatedButton.icon(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => MatchingGame(
+                              placeindex: id,
+                              placename: place.name,
+                            )));
+                  },
+                  label: Text(
+                    '''${place.name}'s Matching Game''',
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      color: Color.fromRGBO(235, 235, 211, 1),
+                    ),
+                  ),
+                  icon: Container(
+                    padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                    child: LineIcon.chess(
+                      color: const Color.fromRGBO(235, 235, 211, 1),
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(50),
+                      ),
+                    ),
+                    //minimumSize: const Size(300, 50),
+                    shadowColor: Colors.transparent,
+                    primary: const Color.fromRGBO(218, 65, 103, 1),
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );

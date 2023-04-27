@@ -15,13 +15,13 @@ class _UserListState extends State<UserList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: false,
+        centerTitle: true,
         title: const Text('Place List'),
-        backgroundColor: const Color(0XFFA13464),
+        backgroundColor: const Color.fromRGBO(8, 61, 119, 1),
         shadowColor: Colors.transparent,
       ),
       body: ListView.builder(
-        itemCount: 1,
+        itemCount: 2,
         itemBuilder: (context, index) {
           final place = listplace[index];
           return Card(
@@ -35,7 +35,10 @@ class _UserListState extends State<UserList> {
               trailing: const Icon(LineIcons.arrowCircleRight),
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => DetailPage(place: place)));
+                    builder: (context) => DetailPage(
+                          place: place,
+                          placeindex: index,
+                        )));
               },
             ),
           );

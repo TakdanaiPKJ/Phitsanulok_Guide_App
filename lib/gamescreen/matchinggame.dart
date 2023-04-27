@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:test_app/model/matchingmodel.dart';
 
 class MatchingGame extends StatefulWidget {
-  const MatchingGame({Key? key}) : super(key: key);
+  final int placeindex;
+  final String placename;
+
+  //@override
+  const MatchingGame(
+      {Key? key, required this.placeindex, required this.placename})
+      : super(key: key);
 
   @override
   State<MatchingGame> createState() => _MatchingGameState();
@@ -14,6 +20,7 @@ class _MatchingGameState extends State<MatchingGame> {
 
   late int score;
   late bool gameOver;
+  late double pass;
 
   @override
   void initState() {
@@ -24,10 +31,11 @@ class _MatchingGameState extends State<MatchingGame> {
   initGame() {
     gameOver = false;
     score = 0;
-    items = List<MatchingListModel>.from(matchingAllList[0]);
-    items2 = List<MatchingListModel>.from(matchingAllList[0]);
+    items = List<MatchingListModel>.from(matchingAllList[widget.placeindex]);
+    items2 = List<MatchingListModel>.from(matchingAllList[widget.placeindex]);
     items.shuffle();
     items2.shuffle();
+    pass = (items.length / 2) * 10;
   }
 
   @override
@@ -38,7 +46,7 @@ class _MatchingGameState extends State<MatchingGame> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('TEST'),
+        title: Text("${widget.placename}'s Matching Quiz"),
         backgroundColor: const Color.fromRGBO(16, 37, 66, 1),
       ),
       body: SingleChildScrollView(
@@ -47,11 +55,16 @@ class _MatchingGameState extends State<MatchingGame> {
             Text.rich(
               TextSpan(
                 children: [
-                  const TextSpan(text: "Score: "),
+                  const TextSpan(
+                    text: "Score: ",
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
                   TextSpan(
-                    text: "$score",
-                    style: const TextStyle(
-                      color: Colors.green,
+                    text: '$score',
+                    style: TextStyle(
+                      color: score > 0 ? Colors.green : Colors.red,
                       fontWeight: FontWeight.bold,
                       fontSize: 30.0,
                     ),
@@ -65,23 +78,46 @@ class _MatchingGameState extends State<MatchingGame> {
                   Column(
                     children: items.map(
                       (item) {
-                        return Container(
-                          margin: const EdgeInsets.all(8.0),
-                          child: Draggable<MatchingListModel>(
-                            data: item,
-                            childWhenDragging: Container(
-                              color: Colors.grey,
-                              child: Text(item.name),
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 5,
+                            vertical: 8,
+                          ),
+                          child: ClipRRect(
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(15),
                             ),
-                            feedback: Container(
-                              color: Colors.grey,
-                              child: Text(item.name),
-                            ),
-                            child: Container(
-                              height: 50,
-                              width: 100,
-                              color: Colors.grey,
-                              child: Text(item.name),
+                            child: Draggable<MatchingListModel>(
+                              data: item,
+                              childWhenDragging: Container(
+                                alignment: Alignment.center,
+                                color: const Color.fromRGBO(218, 65, 103, 1),
+                                //child: Text(item.name),
+                              ),
+                              feedback: Container(
+                                alignment: Alignment.center,
+                                height: 40,
+                                width: 90,
+                                color: const Color.fromRGBO(218, 65, 103, 1),
+                                child: Text(
+                                  item.name,
+                                  style: const TextStyle(
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ),
+                              child: Container(
+                                height: 50,
+                                width: 100,
+                                alignment: Alignment.center,
+                                color: const Color.fromRGBO(218, 65, 103, 1),
+                                child: Text(
+                                  item.name,
+                                  style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
                             ),
                           ),
                         );
@@ -120,18 +156,31 @@ class _MatchingGameState extends State<MatchingGame> {
                             return true;
                           },
                           builder: (context, acceptedItems, rejectedItem) =>
-                              Container(
-                            color: item.accepting ? Colors.red : Colors.teal,
-                            height: 50,
-                            width: 100,
-                            alignment: Alignment.center,
-                            margin: const EdgeInsets.all(8.0),
-                            child: Text(
-                              item.ans,
-                              style: const TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18),
+                              Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 5,
+                              vertical: 8,
+                            ),
+                            child: ClipRRect(
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(15),
+                              ),
+                              child: Container(
+                                color: item.accepting
+                                    ? const Color.fromRGBO(244, 211, 94, 1)
+                                    : const Color.fromRGBO(247, 135, 100, 1),
+                                height: 50,
+                                width: 100,
+                                alignment: Alignment.center,
+                                //margin: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  item.ans,
+                                  style: const TextStyle(
+                                      color: Color.fromRGBO(235, 235, 211, 1),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                ),
+                              ),
                             ),
                           ),
                         );
@@ -142,20 +191,22 @@ class _MatchingGameState extends State<MatchingGame> {
               ),
             if (gameOver)
               Container(
-                color: Colors.amber,
-                child: const Text(
-                  "GameOver",
+                color: Colors.transparent,
+                child: Text(
+                  score >= pass
+                      ? "Congrats you get more than half"
+                      : "Nt,You get below half,Let's Try again",
                   style: TextStyle(
-                    color: Colors.red,
+                    color: score >= pass ? Colors.green : Colors.red,
                     fontWeight: FontWeight.bold,
-                    fontSize: 24,
+                    fontSize: 20,
                   ),
                 ),
               ),
             if (gameOver)
               Center(
                 child: ElevatedButton(
-                  child: const Text("NEW GAME ?"),
+                  child: Text(score >= pass ? "Play again!" : "Try again!!"),
                   onPressed: () {
                     initGame();
                     setState(() {});

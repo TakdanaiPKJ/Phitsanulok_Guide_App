@@ -17,9 +17,9 @@ class _UserHomeState extends State<UserHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: false,
+        centerTitle: true,
         title: const Text('Home'),
-        backgroundColor: const Color(0XFFA13464),
+        backgroundColor: const Color.fromRGBO(8, 61, 119, 1),
         shadowColor: Colors.transparent,
       ),
       body: FlutterMap(
@@ -41,8 +41,10 @@ class _UserHomeState extends State<UserHome> {
                   builder: (context) => IconButton(
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>
-                                DetailPage(place: listplace[0]),
+                            builder: (context) => DetailPage(
+                              place: listplace[0],
+                              placeindex: 0,
+                            ),
                           ));
                           //Navigator.pushNamed(context, 'watyai');
                         },
