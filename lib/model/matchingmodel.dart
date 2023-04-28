@@ -11,15 +11,8 @@ class MatchingListModel {
     this.accepting = false,
   });
 
-  void remove(MatchingListModel recieveItem) {}
+  //void remove(MatchingListModel recieveItem) {}
 }
-/*
-class MatchingAllModel {
-  final int placematchingindex;
-  final List<MatchingListModel> listplace;
-
-  MatchingAllModel({required this.placematchingindex, required this.listplace});
-}*/
 
 List<MatchingListModel> _place1 = [
   MatchingListModel(name: '1+1', ans: '2', value: '2'),

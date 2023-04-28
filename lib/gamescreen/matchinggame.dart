@@ -45,8 +45,9 @@ class _MatchingGameState extends State<MatchingGame> {
     }
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        title: Text("${widget.placename}'s Matching Quiz"),
+        automaticallyImplyLeading: false,
+        centerTitle: false,
+        title: Text("${widget.placename}'s Matching Game"),
         backgroundColor: const Color.fromRGBO(16, 37, 66, 1),
       ),
       body: SingleChildScrollView(
@@ -213,6 +214,14 @@ class _MatchingGameState extends State<MatchingGame> {
                   },
                 ),
               ),
+            Center(
+              child: ElevatedButton(
+                child: const Text("Exit Game"),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            )
           ],
         ),
       ),

@@ -30,7 +30,12 @@ class _UserListState extends State<UserList> {
                 radius: 28,
                 backgroundImage: NetworkImage(place.pic),
               ),
-              title: Text(place.name),
+              title: Text(
+                place.name,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               subtitle: Text(place.type),
               trailing: const Icon(LineIcons.arrowCircleRight),
               onTap: () {
