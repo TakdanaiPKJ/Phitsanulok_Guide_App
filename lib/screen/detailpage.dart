@@ -97,9 +97,7 @@ class DetailPage extends StatelessWidget {
                     borderRadius: BorderRadius.all(
                       Radius.circular(50),
                     ),
-                  ),
-                  //minimumSize: const Size(200, 35),
-                  primary: const Color.fromRGBO(218, 65, 103, 1),
+                  ), backgroundColor: const Color.fromRGBO(218, 65, 103, 1),
                   elevation: 0,
                   shadowColor: Colors.transparent,
                 ),
@@ -139,10 +137,9 @@ class DetailPage extends StatelessWidget {
                       borderRadius: BorderRadius.all(
                         Radius.circular(50),
                       ),
-                    ),
+                    ), backgroundColor: const Color.fromRGBO(218, 65, 103, 1),
                     //minimumSize: const Size(300, 50),
                     shadowColor: Colors.transparent,
-                    primary: const Color.fromRGBO(218, 65, 103, 1),
                   ),
                 ),
               ),
