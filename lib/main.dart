@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           //fontFamily: 'ChakraPetch',
           ),
+          
       initialRoute: '/',
       routes: {
         '/': (context) => const HomePage(),

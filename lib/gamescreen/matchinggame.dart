@@ -95,30 +95,39 @@ class _MatchingGameState extends State<MatchingGame> {
                                 color: const Color.fromRGBO(218, 65, 103, 1),
                                 //child: Text(item.name),
                               ),
-                              feedback: Container(
+                              feedback: Padding( //feedback when drag
+                                padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(20),
+                                  child: Container( height: 100,
+                                width: 175,
+      
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: NetworkImage(item.name),
+                                    fit: BoxFit.cover,
+                                 )
+                                ),),
+                                ),
+                               
+                                
+                              ),
+                              child: Padding(padding: const EdgeInsets.fromLTRB(15, 15, 0, 0),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(20),
+                                  child: Container( //normal stage
+                                height: 100,
+                                width: 175,
                                 alignment: Alignment.center,
-                                height: 40,
-                                width: 90,
-                                color: const Color.fromRGBO(218, 65, 103, 1),
-                                child: Text(
-                                  item.name,
-                                  style: const TextStyle(
-                                    fontSize: 12,
-                                  ),
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: NetworkImage(item.name),
+                                    fit: BoxFit.cover,
+                                 )
+                                ),
                                 ),
                               ),
-                              child: Container(
-                                height: 50,
-                                width: 100,
-                                alignment: Alignment.center,
-                                color: const Color.fromRGBO(218, 65, 103, 1),
-                                child: Text(
-                                  item.name,
-                                  style: const TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
+                              )
                             ),
                           ),
                         );
@@ -158,22 +167,19 @@ class _MatchingGameState extends State<MatchingGame> {
                           },
                           builder: (context, acceptedItems, rejectedItem) =>
                               Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 5,
-                              vertical: 8,
-                            ),
+                            padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
                             child: ClipRRect(
                               borderRadius: const BorderRadius.all(
                                 Radius.circular(15),
-                              ),
+                                
+                                ),
                               child: Container(
                                 color: item.accepting
                                     ? const Color.fromRGBO(244, 211, 94, 1)
                                     : const Color.fromRGBO(247, 135, 100, 1),
-                                height: 50,
-                                width: 100,
+                                height: 100,
+                                width: 175,
                                 alignment: Alignment.center,
-                                //margin: const EdgeInsets.all(8.0),
                                 child: Text(
                                   item.ans,
                                   style: const TextStyle(

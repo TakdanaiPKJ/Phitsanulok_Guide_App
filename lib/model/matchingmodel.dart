@@ -15,10 +15,14 @@ class MatchingListModel {
 }
 
 List<MatchingListModel> _place1 = [
-  MatchingListModel(name: '1+1', ans: '2', value: '2'),
-  MatchingListModel(name: '2+2', ans: '4', value: '4'),
-  MatchingListModel(name: '3+3', ans: '6', value: '6'),
-  MatchingListModel(name: '4+4', ans: '8', value: '8'),
+  MatchingListModel(name: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Phra_Phuttha_Chinnarat_%28II%29.jpg/250px-Phra_Phuttha_Chinnarat_%28II%29.jpg', 
+                    ans: 'พระพุทธชินราช', value: '1'),
+  MatchingListModel(name: '2+2',
+                    ans: '4', value: '2'),
+  MatchingListModel(name: '3+3',
+                    ans: '6', value: '3'),
+  MatchingListModel(name: '4+4',
+                    ans: '8', value: '4'),
 ];
 
 List<MatchingListModel> _place2 = [
