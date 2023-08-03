@@ -17,19 +17,19 @@ class MatchingListModel {
 List<MatchingListModel> _place1 = [
   MatchingListModel(name: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Phra_Phuttha_Chinnarat_%28II%29.jpg/250px-Phra_Phuttha_Chinnarat_%28II%29.jpg', 
                     ans: 'พระพุทธชินราช', value: '1'),
-  MatchingListModel(name: '2+2',
+  MatchingListModel(name: 'https://picsum.photos/200/300',
                     ans: '4', value: '2'),
-  MatchingListModel(name: '3+3',
+  MatchingListModel(name: 'https://picsum.photos/200/300',
                     ans: '6', value: '3'),
-  MatchingListModel(name: '4+4',
+  MatchingListModel(name: 'https://picsum.photos/200/300',
                     ans: '8', value: '4'),
 ];
 
 List<MatchingListModel> _place2 = [
-  MatchingListModel(name: 'A', ans: '1', value: '1'),
-  MatchingListModel(name: 'B', ans: '2', value: '2'),
-  MatchingListModel(name: 'C', ans: '3', value: '3'),
-  MatchingListModel(name: 'C', ans: '4', value: '4'),
+  MatchingListModel(name: 'https://picsum.photos/200/300', ans: '1', value: '1'),
+  MatchingListModel(name: 'https://picsum.photos/200/300', ans: '2', value: '2'),
+  MatchingListModel(name: 'https://picsum.photos/200/300', ans: '3', value: '3'),
+  MatchingListModel(name: 'https://picsum.photos/200/300', ans: '4', value: '4'),
 ];
 
 List<List<MatchingListModel>> matchingAllList = [

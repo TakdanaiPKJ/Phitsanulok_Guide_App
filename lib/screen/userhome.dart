@@ -27,11 +27,11 @@ class _UserHomeState extends State<UserHome> {
         layers: [
           TileLayerOptions(
             urlTemplate:
-                'https://api.mapbox.com/styles/v1/prxmz/clgvs4ush008701qudtc00tmc/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoicHJ4bXoiLCJhIjoiY2xlYmIxaXd0MTdnejN2cjFxd2huZHQ0MiJ9.M_UA7jSW68pQGvr2Mbz8DQ',
+                'https://api.mapbox.com/styles/v1/prxmz/clebbhxgy000501pq0y4l0088/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoicHJ4bXoiLCJhIjoiY2xlYmIxaXd0MTdnejN2cjFxd2huZHQ0MiJ9.M_UA7jSW68pQGvr2Mbz8DQ',
             additionalOptions: const {
               'AccessToken':
-                  'pk.eyJ1IjoicHJ4bXoiLCJhIjoiY2xlYmIxaXd0MTdnejN2cjFxd2huZHQ0MiJ9.M_UA7jSW68pQGvr2Mbz8DQ',
-              'id': 'mapbox://styles/prxmz/clgvs4ush008701qudtc00tmc'
+                  'pk.eyJ1IjoicHJ4bXoiLCJhIjoiY2xlYmJkY2FyMDZyMTNxbGduZGtwZXY0ciJ9.stX11OEQ6Iu8LlmeSbYzMg',
+              'id': 'mapbox://styles/prxmz/clebbhxgy000501pq0y4l0088'
             },
           ),
           MarkerLayerOptions(
