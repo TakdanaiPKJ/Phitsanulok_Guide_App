@@ -21,7 +21,7 @@ class _UserListState extends State<UserList> {
         shadowColor: Colors.transparent,
       ),
       body: ListView.builder(
-        itemCount: 2,
+        itemCount: 5,
         itemBuilder: (context, index) {
           final place = listplace[index];
           return Card(

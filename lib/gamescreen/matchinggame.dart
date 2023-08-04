@@ -167,7 +167,7 @@ class _MatchingGameState extends State<MatchingGame> {
                           },
                           builder: (context, acceptedItems, rejectedItem) =>
                               Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
+                            padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                             child: ClipRRect(
                               borderRadius: const BorderRadius.all(
                                 Radius.circular(15),
@@ -181,11 +181,13 @@ class _MatchingGameState extends State<MatchingGame> {
                                 width: 175,
                                 alignment: Alignment.center,
                                 child: Text(
+                                  textAlign: TextAlign.center,
                                   item.ans,
                                   style: const TextStyle(
                                       color: Color.fromRGBO(235, 235, 211, 1),
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 18),
+                                      fontSize: 16, 
+                                    ),
                                 ),
                               ),
                             ),
