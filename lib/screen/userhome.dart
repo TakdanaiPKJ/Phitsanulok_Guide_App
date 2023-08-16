@@ -35,7 +35,7 @@ class _UserHomeState extends State<UserHome> {
               'id': 'mapbox://styles/prxmz/clebbhxgy000501pq0y4l0088'
             },
           ),
-          MarkerLayerOptions(
+          MarkerLayerOptions( 
             markers: [
               Marker(
                   point: LatLng(listplace[0].latt, listplace[0].lngg),
@@ -50,6 +50,7 @@ class _UserHomeState extends State<UserHome> {
                           //Navigator.pushNamed(context, 'watyai');
                         },
                         icon: const Icon(LineIcons.mapPin),
+                        selectedIcon: const Icon(LineIcons.alipay),
                         color: Colors.red,
                         iconSize: 40.0,
                       )),

@@ -31,6 +31,7 @@ dependencies:
     sdk: flutter
 
   flutter_map: any
+  location: any
   latlong2: any
 
   maps_launcher: ^2.2.0
@@ -84,11 +85,11 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  #fonts:
-  #  - family: ChakraPetch
-  #    fonts:
-  #      - asset: fonts/ChakraPetch-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+  fonts:
+    - family: ChakraPetch
+      fonts:
+        - asset: fonts/ChakraPetch-SemiBold.ttf
+  #      - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #  - family: CircularStd
   #    fonts:
