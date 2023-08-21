@@ -28,7 +28,8 @@ class _UserListState extends State<UserList> {
             child: ListTile(
               leading: CircleAvatar(
                 radius: 28,
-                backgroundImage: NetworkImage(place.pic),
+                //backgroundImage: ,
+                foregroundImage: AssetImage(place.pic),
               ),
               title: Text(
                 place.name,

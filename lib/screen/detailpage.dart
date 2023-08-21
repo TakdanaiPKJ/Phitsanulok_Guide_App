@@ -23,8 +23,8 @@ class DetailPage extends StatelessWidget {
             floating: false,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.network(
-                place.pic,
+              background: Image(
+                image: AssetImage(place.pic),
                 width: double.infinity,
                 fit: BoxFit.cover,
               ),
@@ -68,7 +68,7 @@ class DetailPage extends StatelessWidget {
                     width: 400,
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: NetworkImage(place.otherpic),
+                            image: AssetImage(place.otherpic),
                             fit: BoxFit.cover)),
                   ),
                 )),
@@ -97,7 +97,8 @@ class DetailPage extends StatelessWidget {
                     borderRadius: BorderRadius.all(
                       Radius.circular(50),
                     ),
-                  ), backgroundColor: const Color.fromRGBO(218, 65, 103, 1),
+                  ),
+                  backgroundColor: const Color.fromRGBO(218, 65, 103, 1),
                   elevation: 0,
                   shadowColor: Colors.transparent,
                 ),
@@ -137,7 +138,8 @@ class DetailPage extends StatelessWidget {
                       borderRadius: BorderRadius.all(
                         Radius.circular(50),
                       ),
-                    ), backgroundColor: const Color.fromRGBO(218, 65, 103, 1),
+                    ),
+                    backgroundColor: const Color.fromRGBO(218, 65, 103, 1),
                     //minimumSize: const Size(300, 50),
                     shadowColor: Colors.transparent,
                   ),

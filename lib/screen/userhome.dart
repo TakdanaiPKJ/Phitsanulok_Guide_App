@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:line_icons/line_icons.dart';
 import '../model/listmodel.dart';
 import 'detailpage.dart';
 
@@ -35,10 +34,12 @@ class _UserHomeState extends State<UserHome> {
               'id': 'mapbox://styles/prxmz/clebbhxgy000501pq0y4l0088'
             },
           ),
-          MarkerLayerOptions( 
+          MarkerLayerOptions(
             markers: [
               Marker(
                   point: LatLng(listplace[0].latt, listplace[0].lngg),
+                  width: 40.0,
+                  height: 40.0,
                   builder: (context) => IconButton(
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
@@ -49,29 +50,29 @@ class _UserHomeState extends State<UserHome> {
                           ));
                           //Navigator.pushNamed(context, 'watyai');
                         },
-                        icon: const Icon(LineIcons.mapPin),
-                        selectedIcon: const Icon(LineIcons.alipay),
+                        icon: const Icon(Icons.location_on),
                         color: Colors.red,
                         iconSize: 40.0,
                       )),
-                Marker(
-                  point: LatLng(16.8275, 100.2546),
+              Marker(
+                  point: LatLng(listplace[1].latt, listplace[1].lngg),
+                  width: 40.0,
+                  height: 40.0,
                   builder: (context) => IconButton(
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => DetailPage(
-                              place: listplace[0],
+                              place: listplace[1],
                               placeindex: 0,
                             ),
                           ));
                           //Navigator.pushNamed(context, 'watyai');
                         },
-                        icon: const Icon(LineIcons.mapPin),
+                        icon: const Icon(Icons.location_on),
                         color: Colors.red,
                         iconSize: 40.0,
                       )),
             ],
-            
           )
         ],
       ),

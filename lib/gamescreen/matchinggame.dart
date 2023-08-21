@@ -89,46 +89,47 @@ class _MatchingGameState extends State<MatchingGame> {
                               Radius.circular(15),
                             ),
                             child: Draggable<MatchingListModel>(
-                              data: item,
-                              childWhenDragging: Container(
-                                alignment: Alignment.center,
-                                color: const Color.fromRGBO(218, 65, 103, 1),
-                                //child: Text(item.name),
-                              ),
-                              feedback: Padding( //feedback when drag
-                                padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(20),
-                                  child: Container( height: 100,
-                                width: 175,
-      
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: NetworkImage(item.name),
-                                    fit: BoxFit.cover,
-                                 )
-                                ),),
+                                data: item,
+                                childWhenDragging: Container(
+                                  alignment: Alignment.center,
+                                  color: const Color.fromRGBO(218, 65, 103, 1),
+                                  //child: Text(item.name),
                                 ),
-                               
-                                
-                              ),
-                              child: Padding(padding: const EdgeInsets.fromLTRB(15, 15, 0, 0),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(20),
-                                  child: Container( //normal stage
-                                height: 100,
-                                width: 175,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: NetworkImage(item.name),
-                                    fit: BoxFit.cover,
-                                 )
+                                feedback: Padding(
+                                  //feedback when drag
+                                  padding:
+                                      const EdgeInsets.fromLTRB(15, 15, 15, 0),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(20),
+                                    child: Container(
+                                      height: 100,
+                                      width: 175,
+                                      decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                        image: AssetImage(item.name),
+                                        fit: BoxFit.cover,
+                                      )),
+                                    ),
+                                  ),
                                 ),
-                                ),
-                              ),
-                              )
-                            ),
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(15, 15, 0, 0),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(20),
+                                    child: Container(
+                                      //normal stage
+                                      height: 100,
+                                      width: 175,
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                        image: AssetImage(item.name),
+                                        fit: BoxFit.cover,
+                                      )),
+                                    ),
+                                  ),
+                                )),
                           ),
                         );
                       },
@@ -171,8 +172,7 @@ class _MatchingGameState extends State<MatchingGame> {
                             child: ClipRRect(
                               borderRadius: const BorderRadius.all(
                                 Radius.circular(15),
-                                
-                                ),
+                              ),
                               child: Container(
                                 color: item.accepting
                                     ? const Color.fromRGBO(244, 211, 94, 1)
@@ -184,10 +184,10 @@ class _MatchingGameState extends State<MatchingGame> {
                                   textAlign: TextAlign.center,
                                   item.ans,
                                   style: const TextStyle(
-                                      color: Color.fromRGBO(235, 235, 211, 1),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16, 
-                                    ),
+                                    color: Color.fromRGBO(235, 235, 211, 1),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                  ),
                                 ),
                               ),
                             ),
