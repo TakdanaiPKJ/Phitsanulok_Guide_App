@@ -1,4 +1,4 @@
-# test_app
+# README
 
 A new Flutter project.
 
